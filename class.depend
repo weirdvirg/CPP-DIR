@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1716648217 source:d:\code_trainings\cpp\class\main.cpp
+	<windows.h>
+	<iostream>
+
+1716657111 source:d:\code_trainings\cpp\class\main2.cpp
+	<windows.h>
+	<iostream>
+

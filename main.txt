@@ -1,0 +1,104 @@
+#include <windows.h>
+#include <iostream>
+
+using namespace std;
+
+int hey()
+{
+    int num;
+    string name;
+    string path1;
+    string path2;
+    bool err;
+
+
+    cout << "Please Enter a Number" << endl;
+    cout << "1: Create Directory" << endl;
+    cout << "2: Remove Directory" << endl;
+    cout << "3: Copy File" << endl;
+    cout << "4: Move File" << endl;
+    cout << "Enter: ";
+    cin >> num;
+    if(num == 1)
+    {
+        cout << "Please Enter path1 For Directory: " << endl;
+        cout << "Enter: ";
+        cin >> path1;
+
+        err = CreateDirectory((path1).c_str(), NULL);
+
+        if(err == false)
+        {
+            if(GetLastError() == 183)
+            {
+                cout << "This Directory Already Exists!" << endl;
+            }
+            else
+            {
+                cout << "Opertaion Failed" << endl;
+                cout << GetLastError() << endl;
+            }
+        }
+    }
+    if(num == 2)
+    {
+        cout << "Please Enter path1 For Directory: " << endl;
+        cout << "Enter: ";
+        cin >> path1;
+
+        err = RemoveDirectory((path1).c_str());
+
+        if(err == false)
+        {
+            if(GetLastError() == 2)
+            {
+                cout << "There Is Not Such a Directory!" << endl;
+            }
+            else
+            {
+                cout << "Opertaion Failed" << endl;
+                cout << GetLastError() << endl;
+            }
+        }
+    }
+    if(num == 3)
+    {
+        cout << "Please Enter path1 Of The File You Want To Copy: " << endl;
+        cout << "Enter: ";
+        cin >> path1;
+
+        cout << "Please Enter Destination path1: " << endl;
+        cout << "Enter: ";
+        cin >> path2;
+
+        err = CopyFile((path1).c_str(), (path2).c_str(), true);
+
+        if(err == false)
+        {
+            cout << "Opertaion Failed" << endl;
+            cout << GetLastError() << endl;
+        }
+
+    }
+    if(num == 4)
+    {
+        cout << "Please Enter path1 Of The File You Want To Move: " << endl;
+        cout << "Enter: ";
+        cin >> path1;
+
+        cout << "Please Enter Destination path1: " << endl;
+        cout << "Enter: ";
+        cin >> path2;
+
+        err = MoveFile((path1).c_str(),(path2 + name).c_str());
+
+        if(err == false)
+        {
+            cout << "Opertaion Failed" << endl;
+            cout << GetLastError() << endl;
+        }
+
+    }
+    cout << endl;
+    return hey();
+}
