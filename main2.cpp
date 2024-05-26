@@ -243,6 +243,10 @@ int main()
 
         CloseHandle(cFile);
         break;
+
+    default:
+        cout << "Invalid Input/Operation" << endl;
+        break;
     }
     cout << endl;
     return main();
